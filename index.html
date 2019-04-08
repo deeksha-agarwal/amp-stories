@@ -1,0 +1,138 @@
+<!---
+
+skipValidation: 'true'
+
+--->
+
+<!-- 
+  ## Introduction
+
+  Learn how to create your first AMP Story. The [amp-story](https://www.ampproject.org/docs/reference/components/amp-story.html) extension provides a new format for displaying visual content. 
+-->
+<!-- -->
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- ## Setup -->
+    <!-- AMP Stories are written using AMPHTML and they use their own AMP extension: `amp-story`. The first step is to import the `amp-story` in the header. -->
+    <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+    <!-- AMP Stories can make use of other AMP extensions such as `amp-video`. However, AMP Stories support only a subset of the available AMP extensions. You can find a full list of the supported extensions [here](https://www.ampproject.org/docs/reference/components/amp-story.html#children-of-amp-story-grid-layer). -->
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <title>Stories in AMP - Hello World</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical" href="/stories/introduction/amp_story_hello_world/">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <!-- Stories can be styled using CSS: -->
+    <style amp-custom>
+      amp-story {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI ", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji ", "Segoe UI Emoji ", "Segoe UI Symbol ";
+      }
+      amp-story-page * {
+        color: white;
+        text-align: center;
+      }
+      [template=thirds] {
+        padding: 0;
+      }
+      a {
+          color: white;
+          text-decoration:none;
+          text-align: center;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- ## Writing the Story -->
+    <!-- Stories are declared inside the `amp-story` tag. Story-level metadata is provided via attributes. (The first four attributes are mandatory; the final two are optional, but recommended.) Note that this metadata augments, but does not replace, [Structured Data](https://developers.google.com/search/docs/data-types/article#amp). -->
+    <amp-story standalone
+      title="Stories in AMP - Hello World"
+      publisher="AMP Project"
+      publisher-logo-src="https://ampbyexample.com/favicons/coast-228x228.png"
+      poster-portrait-src="https://ampbyexample.com/img/story_dog2_portrait.jpg"
+      poster-square-src="https://ampbyexample.com/img/story_dog2_square.jpg"
+      poster-landscape-src="https://ampbyexample.com/img/story_dog2_landscape.jpg">
+
+      <!-- A story consists of one or more pages. Each page is declared by an `amp-story-page` element. Pages are designed by layering videos, images and text. Here we have a page that uses two layers. One layer filling the available space with an image and one text layer that shows a heading. -->
+      <amp-story-page id="cover">
+        <amp-story-grid-layer template="fill">
+          <amp-img src="http://images6.fanpop.com/image/photos/37700000/Ed-Sheeran-ed-sheeran-37743791-333-500.jpg"
+                   width="720" height="1280" 
+                   layout="responsive">
+          </amp-img>
+        </amp-story-grid-layer>
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="lower-third">
+          <h1>ED SHEERAN</h1>
+          <p>03 MAY, 2019 | GELORA BUNG KARNO STADIUM</p>
+          </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+
+      <!-- Pre-defined entry animations make it possible to create dynamic pages without videos. The length and initial delay can be customized using the `animate-in-duration` and `animate-in-delay` properties. The [animations sample](../../features/animations/) shows all available animantions in action. -->
+      <amp-story-page id="demo">
+        <amp-story-grid-layer template="fill">
+         <amp-img width="720" height="1280" 
+                   layout="responsive"src="http://31.media.tumblr.com/c17cc5b0b167779e082a0194b86b78d4/tumblr_mqm0u2mEAg1s3lmjpo1_500.gif"></amp-img>
+        </amp-story-grid-layer>
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="lower-third">
+            <div style="background:black;margin-top:20px" animate-in="fly-in-right"
+              animate-in-delay="0.10s">
+              <p style="color:white;">TICKETS AVAILABLE NOW AT</p>
+              <h1><a href="https://www.tokopedia.com/events/detail/edsheeran" role="link" data-tooltip-icon="./assets/ic_amp_googblue_1x_web_24dp.png" data-tooltip-text="Go to page">TOKOPEDIA</a></h1>
+            </div>
+            </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+
+      <amp-story-page id="sponsers">
+        <amp-story-grid-layer template="fill">
+        	<amp-img 
+                   width="720" height="1280" 
+                   layout="responsive" 
+                     src="https://ak3.picdn.net/shutterstock/videos/11748413/thumb/12.jpg?i10c=img.resize(height:160)">
+          </amp-img>
+        </amp-story-grid-layer>
+        <amp-story-grid-layer template="vertical">
+
+          <p style="color:black;">
+            OUR PARTNERS
+          </p>
+          <div>
+              <amp-img width="60" height="10px" layout="responsive"
+               src="https://edsheeranjakarta.com/images/complete-mandiri-logo.png">
+            </amp-img>
+          </div>
+          <div>
+              <amp-img width="60" height="10px" layout="responsive"
+               src="https://edsheeranjakarta.com/images/complete-tokopedia-logo.png">
+            </amp-img>
+          </div>
+          <p style="color:black;">
+            MEDIA PARTNERS
+          </p>
+          <div>
+              <amp-img width="60" height="10px" layout="responsive"
+               src="https://d2k8tszwkqy6tu.cloudfront.net/edsheeran/media-partners-edsheeran-min.png">
+            </amp-img>
+            <p style="color:black;margin:10px;margin-top:20px;" animate-in="fly-in-bottom"
+              animate-in-delay="0.10s">
+              For information about ticket purchase, please contact: <a style="color:blue;" href="https://www.tokopedia.com/help">https://www.tokopedia.com/help</a>
+            </p>
+            <p style="color:black;margin:10px;" animate-in="fly-in-bottom"
+              animate-in-delay="0.10s">
+              For international purchasing, please contact: <a href="internalbooking@loket.com" style="color:blue;">internalbooking@loket.com</a>
+            </p>
+          </div>
+      	</amp-story-grid-layer>
+      </amp-story-page>
+
+      <!-- A "bookend" panel containing links to other resources will appear on the last page of your story if you include an `amp-story-bookend` that references a [bookend JSON config](/json/bookend.json). -->
+      <amp-story-bookend src="https://ampbyexample.com/json/bookend.json" layout="nodisplay">
+      </amp-story-bookend>
+    </amp-story>
+  </body>
+</html>
